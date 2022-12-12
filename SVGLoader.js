@@ -1,3 +1,15 @@
+/**
+ * TLoberg 2022
+ *
+ * @version 1.0.0
+ * @summary Converts i-tags into svg data
+ * @author Thomas Tufta Løberg <thomas@tloberg.net>
+ *
+ * Created at     : 2022-12-12 23:36:42 
+ * Last modified  : 2022-12-12 23:36:42
+ */
+
+
 class SVGLoader {
     constructor() {
         // Contain an array of {filename, content}-objects to save network usage
