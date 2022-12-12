@@ -19,5 +19,5 @@ Include script in HTML header like this:
 `<i class="lo-icon lo-profile" title="Profile icon"></i>`
     
 #### Output:    
-`<!-- <i class="lo-icon lo-profile" title="Profile icon"></i> -->    
-<svg class="lo-icon lo-profile" title="Profile icon"><path...></svg>`
+`<!-- <i class="lo-icon lo-profile" title="Profile icon"></i> -->`    
+`<svg class="lo-icon lo-profile" title="Profile icon"><path...></svg>`
