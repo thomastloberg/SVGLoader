@@ -1,8 +1,17 @@
-
 class SVGLoader {
     constructor() {
         // Contain an array of {filename, content}-objects to save network usage
         this.FilesLoaded = [];
+
+        // <i>-elements with this classname is defined as SVGLoader-element
+        this.SVGLoaderPrefix = 'lo-icon';
+
+        // <i>-elements with classname starting with Prefix will be requested in this.getFileContent()
+        this.Prefix = 'lo-';
+
+        // Location of all SVG-files
+        this.SVGPath = './src/img/';
+
 
         // Get all <i>-elements
         const DOMList = Array.from(document.body.getElementsByTagName("i"));
@@ -15,7 +24,8 @@ class SVGLoader {
         DOMList.forEach(DOMElem => {
             if(DOMElem.classList.contains("lo-icon")) {
                 DOMElem.classList.forEach(classname => {
-                    if(classname != "lo-icon" && classname.startsWith("lo-")) {
+                    if(classname.trim().toLowerCase() != this.SVGLoaderPrefix.trim().toLowerCase() 
+                    && classname.trim().toLowerCase().startsWith(this.Prefix.trim().toLowerCase())) {
                         this.getFileContent(classname, DOMElem, this.insertDOM);
                         return;
                     }
@@ -40,7 +50,7 @@ class SVGLoader {
         }
     
         // Create query
-        const fileRequest = new Request(`./src/img/${Path}.svg`);
+        const fileRequest = new Request(`${this.SVGPath}${Path}.svg`);
 
         // Fetch file content
         fetch(fileRequest)
